@@ -76,7 +76,7 @@
                     
                     <div class="row">
                         <center><div class="form-group col-xs-12">
-                            <input value="Send" type="submit" class="btn btn-default"n>
+                            <input value="Йөкләргә" type="submit" class="btn btn-default"n>
                         </div></center>
                     </div>
                     </form>
@@ -113,26 +113,23 @@
     <hr>
 
     <!-- Footer -->
-    <footer>
+     <footer>
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <ul class="list-inline text-center">
                         <li>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
+                            <img src="img/group.jpg" width="300" height="200" style="
+    margin-top: -277px;">
                         </li>
                         <li>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-vk fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
+                            <script type="text/javascript" src="//vk.com/js/api/openapi.js?146"></script>
+
+                                <!-- VK Widget -->
+                                <div id="vk_groups"></div>
+                                <script type="text/javascript">
+                                VK.Widgets.Group("vk_groups", {mode: 3, width: "300"}, 57720);
+                            </script>
                         </li>
                     </ul>
                     <p class="copyright text-muted">Copyright &copy; "Яңа нәшрият" 2017</p>
