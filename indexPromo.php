@@ -60,24 +60,50 @@
 <!--                     <h2 class="section-heading">Сугыш сәнгате</h2>
  -->                    
                     <p>Хәрби стратегия һәм сәясәткә багышланган борынгы Кытай трактаты хәзер татар телендә. Сугыш-көрәшсез дә җиңәргә өйрәтә торган әсәр инде күптәннән үзеңне камилләштерү әдәбияты буларак та кулланыла. АКШ гаскәриләре исә аны мәҗбүри өйрәнә. 2500 ел элек язылган китапның сезгә дә файдасы тияр.</p>
-
-                    <form name="sentMessage" id="contactForm" novalidate>
+                    <br>
+                    <div id="results"></div>
+                    <br>
+                    <form id="contactForm" name="sentMessage" method="post" action="javascript:void(null);" onsubmit="call()" >
                     <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls">
                             <label>Промо-код</label>
-                            <input type="text" class="form-control" placeholder="KITAP#####" id="code" required data-validation-required-message="Зинһар өчен сездә булган серсүзне языгыз">
+                            <input type="text" class="form-control" id="code" name="code" placeholder="KITAP#####" required data-validation-required-message="Зинһар өчен сездә булган серсүзне языгыз">
                             <p class="help-block text-danger"></p>
                         </div>
                     </div>
                     
                     <br>
-                    <div id="success"></div>
+                    
                     <div class="row">
                         <center><div class="form-group col-xs-12">
-                            <button type="submit" class="btn btn-default">Йөкләргә</button>
+                            <input value="Send" type="submit" class="btn btn-default"n>
                         </div></center>
                     </div>
-                </form>
+                    </form>
+                        <script type="text/javascript" language="javascript">
+                            function call() {
+                                var msg = $('#contactForm').serialize();
+                                $.ajax({
+                                  type: 'POST',
+                                  url: 'process.php',
+                                  data: msg,
+                                  success: function(data) {
+                                    $('#results').html(data);
+                                  },
+                                error:  function(xhr, str){
+                                    alert('Возникла ошибка: ' + xhr.responseCode);
+                                }
+
+                            }); 
+                            contactForm.style.display = (contactForm.style.display == 'none') ? 'block' : 'none';
+
+                         }
+
+                         function refresh()
+                            {
+                                window.location.reload();
+                            }
+                    </script>
 
                 </div>
             </div>
