@@ -31,10 +31,7 @@ a:hover,
 a:focus {
   color: #0085A1;
 }
-a img:hover,
-a img:focus {
-  cursor: zoom-in;
-}
+
 blockquote {
   color: #777777;
   font-style: italic;
@@ -411,6 +408,12 @@ body {
   z-index: 1;
 }
 
+.download {
+  height: 44px;
+  width: 150px;
+  cursor: pointer;
+}
+
 .wrapper {
   box-sizing: border-box;
   width: 100%;
@@ -423,19 +426,20 @@ body {
 
 #mainBook {
   margin-top: -175px;
-  width: 12em;
+  width: 14em;
   position: relative;
   z-index: 0;
+  box-shadow: 0.4em 0.4em 5px rgba(122,122,122,0.5);
 }
 
 #fBook {
-  margin-top: -175px;
-  width: 10em;
+  margin-top: -165px;
+  width: 12em;
   
 }
 
 #sBook {
-  margin-top: -175px;
-  width: 11em;
-  margin-left: -22px;
+  margin-top: -165px;
+  width: 12em;
+  margin-left: -10px;
 }
