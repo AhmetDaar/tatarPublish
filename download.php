@@ -32,7 +32,36 @@
 </head>
 
 <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="index.html">Яңа Нәшрият</a>
+            </div>
 
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="index.html">Баш бит</a>
+                    </li>
+                    <li>
+                        <a href="about.html">Китаплар</a>
+                    </li>
+                    <li>
+                        <a href="download.php">Йөкләргә</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
     
 
     <!-- Page Header -->
@@ -57,27 +86,29 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<!--                     <h2 class="section-heading">Сугыш сәнгате</h2>
- -->                    
+                   
+                    
                     <p>Хәрби стратегия һәм сәясәткә багышланган борынгы Кытай трактаты хәзер татар телендә. Сугыш-көрәшсез дә җиңәргә өйрәтә торган әсәр инде күптәннән үзеңне камилләштерү әдәбияты буларак та кулланыла. АКШ гаскәриләре исә аны мәҗбүри өйрәнә. 2500 ел элек язылган китапның сезгә дә файдасы тияр.</p>
-
-                    <form name="sentMessage" id="contactForm" novalidate>
+                    <br>
+                    <div id="results"></div>
+                    <br>
+                    <form id="contactForm" name="sentMessage" method="post" action="javascript:void(null);" onsubmit="call()" >
                     <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls">
                             <label>Промо-код</label>
-                            <input type="text" class="form-control" placeholder="KITAP#####" id="code" required data-validation-required-message="Зинһар өчен сездә булган серсүзне языгыз">
+                            <input type="text" class="form-control" id="code" name="code" placeholder="KITAP#####" required data-validation-required-message="Зинһар өчен сездә булган серсүзне языгыз">
                             <p class="help-block text-danger"></p>
                         </div>
                     </div>
                     
                     <br>
-                    <div id="success"></div>
                     <div class="row">
                         <center><div class="form-group col-xs-12">
-                            <button type="submit" class="btn btn-default">Йөкләргә</button>
+                            <input value="Йөкләргә" type="submit" class="btn btn-default"n>
                         </div></center>
                     </div>
-                </form>
+                    </form>
+
 
                 </div>
             </div>
@@ -87,26 +118,23 @@
     <hr>
 
     <!-- Footer -->
-    <footer>
+     <footer>
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <ul class="list-inline text-center">
                         <li>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
+                            <img src="img/group.jpg" width="300" height="200" style="
+    margin-top: -277px;">
                         </li>
                         <li>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-vk fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
+                            <script type="text/javascript" src="//vk.com/js/api/openapi.js?146"></script>
+
+                                <!-- VK Widget -->
+                                <div id="vk_groups"></div>
+                                <script type="text/javascript">
+                                VK.Widgets.Group("vk_groups", {mode: 3, width: "300"}, 57720);
+                            </script>
                         </li>
                     </ul>
                     <p class="copyright text-muted">Copyright &copy; "Яңа нәшрият" 2017</p>
@@ -127,6 +155,30 @@
 
     <!-- Theme JavaScript -->
     <script src="js/clean-blog.min.js"></script>
+    <script type="text/javascript" language="javascript">
+                            function call() {
+                                var msg = $('#contactForm').serialize();
+                                $.ajax({
+                                  type: 'POST',
+                                  url: 'process.php',
+                                  data: msg,
+                                  success: function(data) {
+                                    $('#results').html(data);
+                                  },
+                                error:  function(xhr, str){
+                                    alert('Возникла ошибка: ' + xhr.responseCode);
+                                }
+
+                            }); 
+                            contactForm.style.display = (contactForm.style.display == 'none') ? 'block' : 'none';
+
+                         }
+
+                         function refresh()
+                            {
+                                window.location.reload();
+                            }
+    </script>
 
 </body>
 
